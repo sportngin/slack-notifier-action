@@ -65,21 +65,7 @@ async function run() {
       channel: channel,
       icon_url: icon_url,
       username: username,
-      text: `Github action (${process.env.GITHUB_WORKFLOW}) triggered\n`,
-      attachments: [
-        {
-          "title": `${process.env.GITHUB_REPOSITORY}`,
-          "title_link": `https://github.com/${process.env.GITHUB_REPOSITORY}`,
-          "color": attachment.color,
-          "text": `${process.env.GITHUB_REF}`,
-          "author_name": `${process.env.GITHUB_ACTOR}`,
-    			"author_link": `https://github.com/${process.env.GITHUB_ACTOR}`,
-    			"author_icon": `https://github.com/${process.env.GITHUB_ACTOR}.png`,
-          "footer": `action -> ${process.env.GITHUB_EVENT_NAME}`,
-          "thumb_url":"https://avatars0.githubusercontent.com/u/44036562?s=200&v=4"
-        },
-        attachment
-      ]
+      attachments: [ attachment ]
     });
   } catch (error) {
     core.setFailed(error.message);
