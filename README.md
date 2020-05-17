@@ -52,13 +52,9 @@ jobs:
 
 ## Output
 
-Default output if you've not set any attachment will look like this.
+If you've set an attachment, only the attachment you provide will be sent to Slack. Otherwise, here's the default output if you've not set any attachment.
 
 ![Image of screenshot](https://raw.githubusercontent.com/cemkiy/action-slacker/master/screnshot.png)
-
-If you've set an attachment, you should see it in addition to default message.
-
-NOTE: For my particular version of this GH Action, I've removed the default message attachment. If no attachment is provided, none will be sent. If one is provided, then _only_ that attachment will show up.
 
 ## Advanced Usage
 

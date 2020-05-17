@@ -1436,11 +1436,29 @@ async function run() {
       required: true
     });
 
+    const default_attachment = {
+      "title": `${process.env.GITHUB_REPOSITORY}`,
+      "title_link": `https://github.com/${process.env.GITHUB_REPOSITORY}`,
+      "color": attachment.color,
+      "text": `${process.env.GITHUB_REF}`,
+      "author_name": `${process.env.GITHUB_ACTOR}`,
+      "author_link": `https://github.com/${process.env.GITHUB_ACTOR}`,
+      "author_icon": `https://github.com/${process.env.GITHUB_ACTOR}.png`,
+      "footer": `action -> ${process.env.GITHUB_EVENT_NAME}`,
+      "thumb_url":"https://avatars0.githubusercontent.com/u/44036562?s=200&v=4"
+    }
+
+    if (isEmpty(attachment)) {
+      const final_attachment = default_attachment
+    } else {
+      const final_attachment = attachment
+    }
+
     slack.send({
       channel: channel,
       icon_url: icon_url,
       username: username,
-      attachments: [ attachment ]
+      attachments: [ final_attachment ]
     });
   } catch (error) {
     core.setFailed(error.message);
