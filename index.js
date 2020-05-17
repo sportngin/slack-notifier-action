@@ -73,8 +73,8 @@ async function run() {
       "thumb_url":"https://avatars0.githubusercontent.com/u/44036562?s=200&v=4"
     }
 
-    var final_attachment = {}
-    if (attachment.length === 0) {
+    var final_attachment = {};
+    if (attachment.length == 0) {
       final_attachment = default_attachment;
     } else {
       final_attachment = attachment;
