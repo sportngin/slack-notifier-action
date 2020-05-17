@@ -73,10 +73,11 @@ async function run() {
       "thumb_url":"https://avatars0.githubusercontent.com/u/44036562?s=200&v=4"
     }
 
+    const final_attachment = {}
     if (attachment.length === 0) {
-      const final_attachment = default_attachment
+      final_attachment = default_attachment;
     } else {
-      const final_attachment = attachment
+      final_attachment = attachment;
     }
 
     slack.send({
