@@ -58,6 +58,8 @@ Default output if you've not set any attachment will look like this.
 
 If you've set an attachment, you should see it in addition to default message.
 
+NOTE: For my particular version of this GH Action, I've removed the default message attachment. If no attachment is provided, none will be sent. If one is provided, then _only_ that attachment will show up.
+
 ## Advanced Usage
 
 If you want to show different messages based on succes or failure of previous steps in your workflow, use success and failure functions.
