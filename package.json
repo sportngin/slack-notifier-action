@@ -1,5 +1,5 @@
 {
-  "name": "action-slacker",
+  "name": "slack-notifier-action",
   "version": "1.0.0",
   "description": "send slack notification with advanced message format",
   "main": "index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cemkiy/action-slacker.git"
+    "url": "git+https://github.com/emma-sax4/slack-notifier-action.git"
   },
   "keywords": [
     "GitHub",
@@ -19,7 +19,7 @@
   ],
   "author": "GitHub",
   "license": "MIT",
-  "homepage": "https://github.com/cemkiy/action-slacker#readme",
+  "homepage": "https://github.com/emma-sax4/slack-notifier-action#readme",
   "dependencies": {
     "@actions/core": "^1.1.1",
     "slack-notify": "^0.1.7"
