@@ -28,7 +28,7 @@ jobs:
     - name: Slack notification
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-      uses: emma-sax4/slack-notifier-action@emmasax4_slack_notifier_action
+      uses: emmasax4/slack-notifier-action@emmasax4_slack_notifier_action
       with:
         # requirements fields for slack
         channel: '#channel-name'
@@ -65,7 +65,7 @@ If you want to show different messages based on succes or failure of previous st
   if: failure()
   env:
     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-  uses: emma-sax4/slack-notifier-action@emmasax4_slack_notifier_action
+  uses: emmasax4/slack-notifier-action@emmasax4_slack_notifier_action
   with:
     channel: '#channel-name'
     icon_url: 'slack user icon url'
@@ -76,7 +76,7 @@ If you want to show different messages based on succes or failure of previous st
   if: success()
   env:
     SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-  uses: emma-sax4/slack-notifier-action@emmasax4_slack_notifier_action
+  uses: emmasax4/slack-notifier-action@emmasax4_slack_notifier_action
   with:
     channel: '#channel-name'
     icon_url: 'slack user icon url'
