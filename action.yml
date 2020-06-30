@@ -3,10 +3,6 @@ description: 'Send slack messages with attachments, auto username, branch and ot
 branding:
   icon: 'bell'
   color: 'purple'
-env:
-  SLACK_WEBHOOK:
-    description: 'required'
-    required: true
 inputs:
   fallback:
     description: 'Required plain-text summary of the attachment.'
@@ -57,6 +53,9 @@ inputs:
     required: true
   username:
     description: 'slack username'
+    required: true
+  slack_webhook:
+    description: 'webhook of Slack'
     required: true
 outputs:
   time: # output will be available to future steps

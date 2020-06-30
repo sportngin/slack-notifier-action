@@ -7,11 +7,11 @@ A [Github Action](https://github.com/features/actions) to send a message to a Sl
 
 ## Configuration
 
-You must set `SLACK_WEBHOOK` environment value in settings page of your repository in order to use without any problem. Please [see here](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets#creating-encrypted-secrets) to learn how to do it if you don't know already.
+You must set a Slack webhook environment value in settings page of your repository in order to use without any problem. Please [see here](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets#creating-encrypted-secrets) to learn how to do it if you don't know already.
 
 ## Usage
 
-Create a workflow, set a step that uses this action and don't forget to specify `SLACK_WEBHOOK` environment value.
+Create a workflow, set a step that uses this action and don't forget to specify the `slack_webhook` as a required variable.
 
 ```yaml
 name: Notification on push
@@ -26,11 +26,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Slack notification
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       uses: emmasax4/slack-notifier-action@emmasax4_slack_notifier_action
       with:
         # requirements fields for slack
+        slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
         channel: '#channel-name'
         icon_url: 'slack user icon url'
         username: 'slack username'
@@ -63,10 +62,9 @@ If you want to show different messages based on succes or failure of previous st
 ```yaml
 - name: Slack notification Failure
   if: failure()
-  env:
-    SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
   uses: emmasax4/slack-notifier-action@emmasax4_slack_notifier_action
   with:
+    slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
     channel: '#channel-name'
     icon_url: 'slack user icon url'
     username: 'slack username'
@@ -74,10 +72,9 @@ If you want to show different messages based on succes or failure of previous st
 
 - name: Slack notification Success
   if: success()
-  env:
-    SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
   uses: emmasax4/slack-notifier-action@emmasax4_slack_notifier_action
   with:
+    slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
     channel: '#channel-name'
     icon_url: 'slack user icon url'
     username: 'slack username'

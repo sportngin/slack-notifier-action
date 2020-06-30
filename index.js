@@ -1,7 +1,9 @@
 const core = require('@actions/core');
 
-const SLACK_WEBHOOK = process.env.SLACK_WEBHOOK;
-const slack = require('slack-notify')(SLACK_WEBHOOK);
+const slack_webhook = core.getInput('slack_webhook', {
+  required: true
+});
+const slack = require('slack-notify')(slack_webhook);
 
 slack.onError = function (err) {
   core.error(`Error ${err}, action may still succeed though`);

@@ -1375,8 +1375,10 @@ module.exports = {
 
 const core = __webpack_require__(470);
 
-const SLACK_WEBHOOK = process.env.SLACK_WEBHOOK;
-const slack = __webpack_require__(553)(SLACK_WEBHOOK);
+const slack_webhook = core.getInput('slack_webhook', {
+  required: true
+});
+const slack = __webpack_require__(553)(slack_webhook);
 
 slack.onError = function (err) {
   core.error(`Error ${err}, action may still succeed though`);
