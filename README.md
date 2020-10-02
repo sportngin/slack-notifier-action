@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Slack notification
-      uses: emmasax4/slack-notifier-action@emmasax4_slack_notifier_action
+      uses: emmasax4/slack-notifier-action@main
       with:
         # requirements fields for slack
         slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
@@ -62,7 +62,7 @@ If you want to show different messages based on succes or failure of previous st
 ```yaml
 - name: Slack notification Failure
   if: failure()
-  uses: emmasax4/slack-notifier-action@emmasax4_slack_notifier_action
+  uses: emmasax4/slack-notifier-action@main
   with:
     slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
     channel: '#channel-name'
@@ -72,7 +72,7 @@ If you want to show different messages based on succes or failure of previous st
 
 - name: Slack notification Success
   if: success()
-  uses: emmasax4/slack-notifier-action@emmasax4_slack_notifier_action
+  uses: emmasax4/slack-notifier-action@main
   with:
     slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
     channel: '#channel-name'
