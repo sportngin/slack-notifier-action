@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/cemkiy/action-slacker/workflows/Main/badge.svg?branch=master)](https://github.com/cemkiy/action-slacker/actions)
+![Main](https://github.com/emmasax4/slack-notifier-action/workflows/Main/badge.svg?branch=main)
 
 
 # Slack - Github Action
