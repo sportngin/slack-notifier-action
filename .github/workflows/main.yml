@@ -11,10 +11,9 @@ jobs:
     steps:
     - name: Slack notification success
       if: success()
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       uses: emmasax4/slack-notifier-action@main
       with:
+        slack_webhook: ${{ secrets.SLACK_WEBHOOK }}  
         channel: '#team-devops'
         color: '#00FFAA'
         username: 'github'
@@ -23,10 +22,9 @@ jobs:
 
     - name: Slack notification failure
       if: failure()
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       uses: emmasax4/slack-notifier-action@main
       with:
+        slack_webhook: ${{ secrets.SLACK_WEBHOOK }}  
         channel: '#team-devops'
         color: '#CC0000'
         username: 'github'
