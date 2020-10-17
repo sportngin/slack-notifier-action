@@ -1,3 +1,4 @@
+# For this workflow to work, you must have a SLACK_WEBHOOK secret defined in either the organization or the repository
 name: Main
 
 on:
@@ -13,9 +14,9 @@ jobs:
     steps:
     - name: Slack notification success
       if: success()
-      uses: emmasax4/slack-notifier-action@main
+      uses: sportngin/slack-notifier-action@main
       with:
-        slack_webhook: ${{ secrets.SLACK_WEBHOOK }}  
+        slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
         channel: '#team-devops'
         color: '#00FFAA'
         username: 'github'
@@ -24,9 +25,9 @@ jobs:
 
     - name: Slack notification failure
       if: failure()
-      uses: emmasax4/slack-notifier-action@main
+      uses: sportngin/slack-notifier-action@main
       with:
-        slack_webhook: ${{ secrets.SLACK_WEBHOOK }}  
+        slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
         channel: '#team-devops'
         color: '#CC0000'
         username: 'github'

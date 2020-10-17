@@ -19,7 +19,7 @@
   ],
   "author": "GitHub",
   "license": "MIT",
-  "homepage": "https://github.com/emmasax4/slack-notifier-action#readme",
+  "homepage": "https://github.com/sportngin/slack-notifier-action#readme",
   "dependencies": {
     "@actions/core": "1.2.6",
     "slack-notify": "^0.1.7"

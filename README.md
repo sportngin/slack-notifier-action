@@ -1,4 +1,4 @@
-![Main](https://github.com/emmasax4/slack-notifier-action/workflows/Main/badge.svg?branch=main)
+![Main](https://github.com/sportngin/slack-notifier-action/workflows/Main/badge.svg?branch=main)
 
 
 # Slack - Github Action
@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Slack notification
-      uses: emmasax4/slack-notifier-action@main
+      uses: sportngin/slack-notifier-action@main
       with:
         # requirements fields for slack
         slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
@@ -62,7 +62,7 @@ If you want to show different messages based on succes or failure of previous st
 ```yaml
 - name: Slack notification Failure
   if: failure()
-  uses: emmasax4/slack-notifier-action@main
+  uses: sportngin/slack-notifier-action@main
   with:
     slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
     channel: '#channel-name'
@@ -72,7 +72,7 @@ If you want to show different messages based on succes or failure of previous st
 
 - name: Slack notification Success
   if: success()
-  uses: emmasax4/slack-notifier-action@main
+  uses: sportngin/slack-notifier-action@main
   with:
     slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
     channel: '#channel-name'
