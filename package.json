@@ -25,6 +25,7 @@
     "slack-notify": "^2.0.7"
   },
   "devDependencies": {
+    "@vercel/ncc": "^0.38.3",
     "@zeit/ncc": "^0.20.5",
     "eslint": "^6.3.0",
     "jest": "^24.9.0"

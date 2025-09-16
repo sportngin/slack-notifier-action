@@ -1,181 +1,13 @@
-module.exports =
-/******/ (function(modules, runtime) { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId]) {
-/******/ 			return installedModules[moduleId].exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/
-/******/ 	__webpack_require__.ab = __dirname + "/";
-/******/
-/******/ 	// the startup function
-/******/ 	function startup() {
-/******/ 		// Load entry module and return exports
-/******/ 		return __webpack_require__(104);
-/******/ 	};
-/******/ 	// initialize runtime
-/******/ 	runtime(__webpack_require__);
-/******/
-/******/ 	// run startup
-/******/ 	return startup();
-/******/ })
-/************************************************************************/
-/******/ ({
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
 
-/***/ 87:
-/***/ (function(module) {
-
-module.exports = require("os");
-
-/***/ }),
-
-/***/ 104:
-/***/ (function(__unusedmodule, __unusedexports, __webpack_require__) {
-
-const core = __webpack_require__(470);
-
-const slack_webhook = core.getInput('slack_webhook', {
-  required: true
-});
-const slack = __webpack_require__(613)(slack_webhook);
-
-slack.onError = function (err) {
-  core.error(`Error ${err}, action may still succeed though`);
-};
-
-// most @actions toolkit packages have async methods
-async function run() {
-  try {
-    let attachment = {};
-    attachment.fallback = core.getInput('fallback', {
-      required: false
-    });
-    attachment.color = core.getInput('color', {
-      required: false
-    });
-    attachment.pretext = core.getInput('pretext', {
-      required: false
-    });
-    attachment.author_name = core.getInput('author_name', {
-      required: false
-    });
-    attachment.author_link = core.getInput('author_link', {
-      required: false
-    });
-    attachment.author_icon = core.getInput('author_icon', {
-      required: false
-    });
-    attachment.title = core.getInput('title', {
-      required: false
-    });
-    attachment.title_link = core.getInput('title_link', {
-      required: false
-    });
-    attachment.text = core.getInput('text', {
-      required: false
-    });
-    attachment.image_url = core.getInput('image_url', {
-      required: false
-    });
-    attachment.thumb_url = core.getInput('thumb_url', {
-      required: false
-    });
-    attachment.footer = core.getInput('footer', {
-      required: false
-    });
-    attachment.footer_icon = core.getInput('footer_icon', {
-      required: false
-    });
-
-    const channel = core.getInput('channel', {
-      required: true
-    });
-    const icon_url = core.getInput('icon_url', {
-      required: true
-    });
-    const username = core.getInput('username', {
-      required: true
-    });
-
-    const default_attachment = {
-      "title": `${process.env.GITHUB_REPOSITORY}`,
-      "title_link": `https://github.com/${process.env.GITHUB_REPOSITORY}`,
-      "color": attachment.color,
-      "text": `${process.env.GITHUB_REF}`,
-      "author_name": `${process.env.GITHUB_ACTOR}`,
-      "author_link": `https://github.com/${process.env.GITHUB_ACTOR}`,
-      "author_icon": `https://github.com/${process.env.GITHUB_ACTOR}.png`,
-      "footer": `action -> ${process.env.GITHUB_EVENT_NAME}`,
-      "thumb_url":"https://avatars0.githubusercontent.com/u/44036562?s=200&v=4"
-    }
-
-    var final_attachment = {};
-    if (attachment.length == 0) {
-      final_attachment = default_attachment;
-    } else {
-      final_attachment = attachment;
-    }
-
-    slack.send({
-      channel: channel,
-      icon_url: icon_url,
-      username: username,
-      attachments: [ final_attachment ]
-    });
-  } catch (error) {
-    core.setFailed(error.message);
-  }
-}
-
-run()
-
-
-/***/ }),
-
-/***/ 211:
-/***/ (function(module) {
-
-module.exports = require("https");
-
-/***/ }),
-
-/***/ 293:
-/***/ (function(module) {
-
-module.exports = require("buffer");
-
-/***/ }),
-
-/***/ 431:
-/***/ (function(__unusedmodule, exports, __webpack_require__) {
+/***/ 914:
+/***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
-Object.defineProperty(exports, "__esModule", { value: true });
-const os = __webpack_require__(87);
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const os = __nccwpck_require__(857);
 /**
  * Commands
  *
@@ -242,8 +74,8 @@ function escape(s) {
 
 /***/ }),
 
-/***/ 470:
-/***/ (function(__unusedmodule, exports, __webpack_require__) {
+/***/ 484:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
 
@@ -256,10 +88,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-const command_1 = __webpack_require__(431);
-const os = __webpack_require__(87);
-const path = __webpack_require__(622);
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const command_1 = __nccwpck_require__(914);
+const os = __nccwpck_require__(857);
+const path = __nccwpck_require__(928);
 /**
  * The code to exit an action
  */
@@ -426,17 +258,11 @@ exports.group = group;
 
 /***/ }),
 
-/***/ 613:
-/***/ (function(__unusedmodule, __webpack_exports__, __webpack_require__) {
+/***/ 226:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var https__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(211);
-/* harmony import */ var https__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(https__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var buffer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(293);
-/* harmony import */ var buffer__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(buffer__WEBPACK_IMPORTED_MODULE_1__);
-
-
+const https = __nccwpck_require__(692);
+const Buffer = (__nccwpck_require__(181).Buffer);
 
 const NO_URL_ERROR = 'No Slack URL configured.';
 
@@ -444,7 +270,7 @@ function isString(str) {
   return typeof str === 'string';
 }
 
-/* harmony default export */ __webpack_exports__["default"] = ((url) => {
+module.exports = (url) => {
   const pub = {};
 
   pub.request = (data) => {
@@ -527,16 +353,16 @@ function isString(str) {
   });
 
   return pub;
-});
+};
 
 // Based off of https://stackoverflow.com/a/50891354
 function post(url, body) {
   return new Promise((resolve, reject) => {
-    const req = https__WEBPACK_IMPORTED_MODULE_0___default().request(url, { method: 'POST' }, (res) => {
+    const req = https.request(url, { method: 'POST' }, (res) => {
       const chunks = [];
       res.on('data', data => chunks.push(data));
       res.on('end', () => {
-        let resBody = buffer__WEBPACK_IMPORTED_MODULE_1__.Buffer.concat(chunks).toString();
+        let resBody = Buffer.concat(chunks).toString();
 
         switch (res.headers['content-type']) {
           case 'application/json':
@@ -561,50 +387,174 @@ function post(url, body) {
 
 /***/ }),
 
-/***/ 622:
-/***/ (function(module) {
+/***/ 181:
+/***/ ((module) => {
 
+"use strict";
+module.exports = require("buffer");
+
+/***/ }),
+
+/***/ 692:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("https");
+
+/***/ }),
+
+/***/ 857:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("os");
+
+/***/ }),
+
+/***/ 928:
+/***/ ((module) => {
+
+"use strict";
 module.exports = require("path");
 
 /***/ })
 
-/******/ },
-/******/ function(__webpack_require__) { // webpackRuntimeModules
-/******/ 	"use strict";
-/******/ 
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	!function() {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = function(exports) {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	}();
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
 /******/ 	
-/******/ 	/* webpack/runtime/compat get default export */
-/******/ 	!function() {
-/******/ 		// getDefaultExport function for compatibility with non-harmony modules
-/******/ 		__webpack_require__.n = function(module) {
-/******/ 			var getter = module && module.__esModule ?
-/******/ 				function getDefault() { return module['default']; } :
-/******/ 				function getModuleExports() { return module; };
-/******/ 			__webpack_require__.d(getter, 'a', getter);
-/******/ 			return getter;
+/******/ 	// The require function
+/******/ 	function __nccwpck_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
 /******/ 		};
-/******/ 	}();
 /******/ 	
-/******/ 	/* webpack/runtime/define property getter */
-/******/ 	!function() {
-/******/ 		// define getter function for harmony exports
-/******/ 		var hasOwnProperty = Object.prototype.hasOwnProperty;
-/******/ 		__webpack_require__.d = function(exports, name, getter) {
-/******/ 			if(!hasOwnProperty.call(exports, name)) {
-/******/ 				Object.defineProperty(exports, name, { enumerable: true, get: getter });
-/******/ 			}
-/******/ 		};
-/******/ 	}();
+/******/ 		// Execute the module function
+/******/ 		var threw = true;
+/******/ 		try {
+/******/ 			__webpack_modules__[moduleId].call(module.exports, module, module.exports, __nccwpck_require__);
+/******/ 			threw = false;
+/******/ 		} finally {
+/******/ 			if(threw) delete __webpack_module_cache__[moduleId];
+/******/ 		}
 /******/ 	
-/******/ }
-);
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat */
+/******/ 	
+/******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+const core = __nccwpck_require__(484);
+
+const slack_webhook = core.getInput('slack_webhook', {
+  required: true
+});
+const slack = __nccwpck_require__(226)(slack_webhook);
+
+slack.onError = function (err) {
+  core.error(`Error ${err}, action may still succeed though`);
+};
+
+// most @actions toolkit packages have async methods
+async function run() {
+  try {
+    let attachment = {};
+    attachment.fallback = core.getInput('fallback', {
+      required: false
+    });
+    attachment.color = core.getInput('color', {
+      required: false
+    });
+    attachment.pretext = core.getInput('pretext', {
+      required: false
+    });
+    attachment.author_name = core.getInput('author_name', {
+      required: false
+    });
+    attachment.author_link = core.getInput('author_link', {
+      required: false
+    });
+    attachment.author_icon = core.getInput('author_icon', {
+      required: false
+    });
+    attachment.title = core.getInput('title', {
+      required: false
+    });
+    attachment.title_link = core.getInput('title_link', {
+      required: false
+    });
+    attachment.text = core.getInput('text', {
+      required: false
+    });
+    attachment.image_url = core.getInput('image_url', {
+      required: false
+    });
+    attachment.thumb_url = core.getInput('thumb_url', {
+      required: false
+    });
+    attachment.footer = core.getInput('footer', {
+      required: false
+    });
+    attachment.footer_icon = core.getInput('footer_icon', {
+      required: false
+    });
+
+    const channel = core.getInput('channel', {
+      required: true
+    });
+    const icon_url = core.getInput('icon_url', {
+      required: true
+    });
+    const username = core.getInput('username', {
+      required: true
+    });
+
+    const default_attachment = {
+      "title": `${process.env.GITHUB_REPOSITORY}`,
+      "title_link": `https://github.com/${process.env.GITHUB_REPOSITORY}`,
+      "color": attachment.color,
+      "text": `${process.env.GITHUB_REF}`,
+      "author_name": `${process.env.GITHUB_ACTOR}`,
+      "author_link": `https://github.com/${process.env.GITHUB_ACTOR}`,
+      "author_icon": `https://github.com/${process.env.GITHUB_ACTOR}.png`,
+      "footer": `action -> ${process.env.GITHUB_EVENT_NAME}`,
+      "thumb_url":"https://avatars0.githubusercontent.com/u/44036562?s=200&v=4"
+    }
+
+    var final_attachment = {};
+    if (attachment.length == 0) {
+      final_attachment = default_attachment;
+    } else {
+      final_attachment = attachment;
+    }
+
+    slack.send({
+      channel: channel,
+      icon_url: icon_url,
+      username: username,
+      attachments: [ final_attachment ]
+    });
+  } catch (error) {
+    core.setFailed(error.message);
+  }
+}
+
+run()
+
+module.exports = __webpack_exports__;
+/******/ })()
+;
