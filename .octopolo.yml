@@ -1,0 +1,7 @@
+deploy_branch: main
+github_repo: sportngin/slack-notifier-action
+
+use_jira: false
+
+plugins:
+- sportngin_octopolo_templates
